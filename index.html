@@ -1,95 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dice Roller</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
-      font-family: Arial, sans-serif;
-      margin: 0;
-    }
-
-    .container {
-      text-align: center;
-      background: #fff;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0px 8px 20px rgba(0,0,0,0.3);
-      width: 90%;
-      max-width: 400px;
-    }
-
-    h1 {
-      color: #2a5298;
-    }
-
-    /* Unique Dice Icon */
-    .dice {
-      width: 120px;
-      height: 120px;
-      margin: 20px auto;
-      border-radius: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 48px;
-      font-weight: bold;
-      color: #fff;
-      background: conic-gradient(#ff4e50, #f9d423, #24c6dc, #ff4e50);
-      animation: spin 1s ease;
-    }
-
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    button {
-      background: #2a5298;
-      color: white;
-      border: none;
-      padding: 12px 20px;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roller</title>
+    <style>
+        h1{
+            margin-top: 20px;
+            color: rgb(37, 1, 1);
+            font-size: 60px;
+            text-align: left;
+        }
+        button {
+      margin-top: 20px;
+      padding: 12px 25px;
       font-size: 18px;
+      font-weight: bold;
+      border: none;
       border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s;
+      background: #89b82a;
+      color: white;
+      cursor:pointer;
     }
-
-    button:hover {
-      background: #1e3c72;
+   button:hover {
+      background: #03484e;
+      transform: scale(1.1);
     }
-
-    @media(max-width: 500px) {
-      .dice {
-        width: 90px;
-        height: 90px;
-        font-size: 36px;
-      }
-      button {
-        font-size: 16px;
-        padding: 10px 16px;
-      }
+    #dice {
+      margin-top: 20px;
+      border-radius: 15px;
+      box-shadow: 0px 8px 15px rgba(219, 7, 7, 0.3);
+      margin-left: 20px;
+    }
+     #dice:hover {
+      transform: scale(1.05);
+      background-color:rgb(188, 6, 6);
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🎲 Dice Roller</h1>
-    <div class="dice" id="dice">-</div>
-    <button onclick="rollDice()">Roll Dice</button>
-  </div>
+  <h1>Dice Roller</h1>
+  <img src="image/dice 1.png" width="300px" height="300px" id="dice" />
+  <br>
+  <button onclick="roll()">Roll the Dice</button>
 
   <script>
-    function rollDice() {
-      let num = Math.floor(Math.random() * 6) + 1;
-      document.getElementById("dice").innerText = num;
+      const min = 1;
+      const max = 6;
+      function roll(){
+      const diceElement = document.getElementById("dice");
+      const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+      switch(randomNumber){
+        case 1:diceElement.src="image/dice 1.png"
+        break;
+        case 2:diceElement.src="image/dice 2.png"
+        break;
+        case 3:diceElement.src="image/dice 3.png"
+        break;
+        case 4:diceElement.src="image/dice 4.png"
+        break;
+        case 5:diceElement.src="image/dice 5.png"
+        break;
+        case 6:diceElement.src="image/dice 6.png"
+        break;
+      }
+       
     }
   </script>
 </body>
 </html>
+
+
+  
